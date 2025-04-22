@@ -1,0 +1,65 @@
+# Ignore build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Logs
+*.log
+*.tlog
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Maui-specific
+*.app/
+*.ipa
+*.apk
+*.aab
+*.xcarchive
+
+# Generated files
+*.g.*
+*.g.i.cs
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Azure Pipelines
+*.coverage
+*.coveragexml
+*.codecov
+TestResults/
+
+# Secrets
+secrets.json
+.env
+
+# Tizen
+*.tpk
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Other
+*.vs/
