@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "coreclr",
+        "request": "launch",
+        "name": "Launch Chatdown",
+        "program": "${workspaceFolder}/Chatdown/bin/Debug/${input:framework}/Chatdown.dll",
+        "cwd": "${workspaceFolder}/Chatdown",
+        "preLaunchTask": "build Chatdown",
+        "justMyCode": false,
+        "symbolOptions": {
+            "searchMicrosoftSymbolServer": true
+        }
+      }
+    ],
+    "inputs": [
+      {
+        "type": "pickString",
+        "id": "framework",
+        "description": "Select the target framework to debug",
+        "options": [
+          "net9.0-android",
+          "net9.0-ios",
+          "net9.0-maccatalyst",
+          "net9.0-windows10.0.19041.0/win10-x64"
+        ]
+      }
+    ]
+  }

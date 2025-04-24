@@ -12,9 +12,6 @@ obj/
 *.log
 *.tlog
 
-# Visual Studio Code
-.vscode/
-
 # Rider
 .idea/
 *.sln.iml

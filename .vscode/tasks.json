@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build Chatdown",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Chatdown/Chatdown.csproj",
+        "/p:DebugSymbols=true",
+        "/p:DebugType=portable",
+        "/p:Optimize=false",
+      ],
+      "dependsOn": "build Chatdown.Shared",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build Chatdown.Shared",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Chatdown.Shared/Chatdown.Shared.csproj",
+        "/p:DebugSymbols=true",
+        "/p:DebugType=portable",
+        "/p:Optimize=false",
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "framework",
+      "description": "Select the target framework to build",
+      "options": [
+        "net9.0-android",
+        "net9.0-ios",
+        "net9.0-maccatalyst",
+        "net9.0-windows"
+      ]
+    }
+  ]
+}
