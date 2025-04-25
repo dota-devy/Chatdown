@@ -12,6 +12,35 @@
         "symbolOptions": {
             "searchMicrosoftSymbolServer": true
         }
+      },
+      {
+        "name": "Start Web Server",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build Chatdown",
+        "program": "${workspaceFolder}/Chatdown.Web/bin/Debug/net9.0/Chatdown.Web.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/Chatdown.Web",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "Now listening on: (https?://\\S+)"
+        },
+        "env": {},
+        "sourceFileMap": {
+          "/Views": "${workspaceFolder}/Views"
+        }
+      },
+      {
+        "name": "Debug Windows App",
+        "type": "coreclr",
+        "request": "launch",
+        "program": "${workspaceFolder}/Chatdown/bin/Debug/net9.0-windows10.0.19041.0/win10-x64/Chatdown.exe",
+        "args": [],
+        "cwd": "${workspaceFolder}/Chatdown",
+        "stopAtEntry": false,
+        "env": {},
+        "console": "internalConsole"
       }
     ],
     "inputs": [

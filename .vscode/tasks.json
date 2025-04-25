@@ -11,6 +11,7 @@
         "/p:DebugSymbols=true",
         "/p:DebugType=portable",
         "/p:Optimize=false",
+        "/p:Build${input:platform}=true"
       ],
       "dependsOn": "build Chatdown.Shared",
       "problemMatcher": "$msCompile"
@@ -25,6 +26,7 @@
         "/p:DebugSymbols=true",
         "/p:DebugType=portable",
         "/p:Optimize=false",
+        "/p:Build${input:platform}=true"
       ],
       "problemMatcher": "$msCompile"
     }
@@ -32,13 +34,13 @@
   "inputs": [
     {
       "type": "pickString",
-      "id": "framework",
-      "description": "Select the target framework to build",
+      "id": "platform",
+      "description": "Select the target platform to build",
       "options": [
-        "net9.0-android",
-        "net9.0-ios",
-        "net9.0-maccatalyst",
-        "net9.0-windows"
+        "Android",
+        "IOS",
+        "Mac",
+        "Windows"
       ]
     }
   ]
