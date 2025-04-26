@@ -26,6 +26,9 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
+      - name: Run unit tests
+        run: dotnet test Chatdown.Tests/Chatdown.Tests.csproj --configuration Release
+
       - name: dotnet publish
         run: dotnet publish Chatdown.Web/Chatdown.Web.csproj -c Release -o "${{env.DOTNET_ROOT}}\Chatdown.Web"
 
@@ -65,4 +68,3 @@ jobs:
           app-name: 'chatdown'
           slot-name: 'Production'
           package: .
-          
