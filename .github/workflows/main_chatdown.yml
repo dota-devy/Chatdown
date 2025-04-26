@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: .test-app
-          path: Chatdown
+          path: Chatdown.Tests
 
   test:
     runs-on: windows-latest
