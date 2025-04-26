@@ -61,7 +61,8 @@ jobs:
 
   deploy:
     runs-on: windows-latest
-    needs: build
+    needs: test
+    if: success() # Only run if the test job was successful
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
