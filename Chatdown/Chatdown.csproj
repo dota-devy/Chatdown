@@ -5,7 +5,6 @@
     <TargetFrameworks Condition="'$(BuildMacCatalyst)' == 'true'">$(TargetFrameworks);net9.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="'$(BuildAndroid)' == 'true'">$(TargetFrameworks);net9.0-android</TargetFrameworks>
     <TargetFrameworks Condition="'$(BuildIOS)' == 'true'">$(TargetFrameworks);net9.0-ios</TargetFrameworks>
-    <TargetFrameworks Condition="'$(BuildLinux)' == 'true'">$(TargetFrameworks);net9.0-linux</TargetFrameworks>
     
     <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
     <!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
