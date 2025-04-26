@@ -348,10 +348,16 @@
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756"
         }
       },
+      "Plugin.BLE": {
+        "type": "Transitive",
+        "resolved": "3.1.0",
+        "contentHash": "vKwCqysb0FvPsF2pmNL5Qdw2WI+GwlUyF6U56Au6F7y3f2cnhec9RWD1XZg74zRk10LcGibwiRXoJLl5ry8XHw=="
+      },
       "chatdown.shared": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "[9.0.0, )"
+          "Microsoft.AspNetCore.Components.Web": "[9.0.0, )",
+          "Plugin.BLE": "[3.1.0, )"
         }
       }
     },
