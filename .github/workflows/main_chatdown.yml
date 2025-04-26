@@ -33,11 +33,18 @@ jobs:
           cache-dependency-path: "**/packages.lock.json"
 
       - name: Restore dependencies
+        id: restore-dependencies
         run: dotnet restore Chatdown.sln --locked-mode /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true /p:BuildLinux=true
+        continue-on-error: true # Continue even if the restore fails, we will force restore later
 
       - name: Force Restore dependencies
         run: dotnet restore Chatdown.sln --locked-mode --force-evaluate /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true /p:BuildLinux=true
-        if: failure() # Only run if the previous step failed - we might need to reeavalutate the dependencies
+        if: steps.restore-dependencies.outcome == 'failure' # Only run if the previous step failed - we might need to reevaluate the dependencies
+           # Only run if the previous step failed - we might need to reeavalutate the dependencies
+
+      - name: Warning if restore failed
+        run: 'echo "::warning: packages.lock is out of sync with the project files. This slows the build considerably. Please run dotnet restore and commit the changes to packages.lock to continue using the package cache"'
+        if: success() && steps.restore-dependencies.outcome == 'failure'
 
       - name: Build with dotnet
         run: dotnet build --configuration Release --no-restore /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true Chatdown.sln
