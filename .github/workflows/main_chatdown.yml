@@ -67,7 +67,7 @@ jobs:
       - name: Run tests
         run: |
           cd Chatdown
-          dotnet test Chatdown.Tests/Chatdown.Tests.csproj --configuration Release
+          dotnet test Chatdown.Tests.csproj --configuration Release
 
   deploy:
     runs-on: windows-latest
