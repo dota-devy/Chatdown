@@ -33,10 +33,10 @@ jobs:
           cache-dependency-path: "**/packages.lock.json"
 
       - name: Restore dependencies
-        run: dotnet restore Chatdown.sln --locked-mode --force-evaluate /p:BuildAndroid=true /p:BuildiOS=true /p:BuildMacCatalyst=true /p:BuildWindows=true /p:BuildLinux=true
+        run: dotnet restore Chatdown.sln --locked-mode --force-evaluate /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true /p:BuildLinux=true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release --no-restore /p:BuildAndroid=true /p:BuildiOS=true /p:BuildMacCatalyst=true /p:BuildWindows=true /p:BuildLinux=true Chatdown.sln
+        run: dotnet build --configuration Release --no-restore /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true Chatdown.sln
 
       - name: dotnet publish
         run: dotnet publish Chatdown.Web/Chatdown.Web.csproj -c Release -o "Chatdown.Web.Publish" 
