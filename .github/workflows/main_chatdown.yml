@@ -34,8 +34,6 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore Chatdown.sln --locked-mode /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true /p:BuildLinux=true
-        continue-on-error: true # Continue even if the restore fails, we will force restore later
-        # This is to ensure that the dependencies are restored even if there are issues with the cache
 
       - name: Force Restore dependencies
         run: dotnet restore Chatdown.sln --locked-mode --force-evaluate /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true /p:BuildLinux=true
