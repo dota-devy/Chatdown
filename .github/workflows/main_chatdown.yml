@@ -44,6 +44,12 @@ jobs:
           name: .net-app
           path: Chatdown.Web.Publish
 
+      - name: Upload artifact for test job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .test-app
+          path: Chatdown
+
   test:
     runs-on: windows-latest
     needs: build
@@ -52,12 +58,12 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
-          path: Chatdown.Web.Publish
+          name: .test-app
+          path: Chatdown
 
       - name: Run tests
         run: |
-          cd Chatdown.Web.Publish
+          cd Chatdown
           dotnet test Chatdown.Tests/Chatdown.Tests.csproj --configuration Release
 
   deploy:
