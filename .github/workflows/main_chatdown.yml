@@ -53,6 +53,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: .net-app
+          path: Chatdown.Web.Publish
 
       - name: Run tests
         run: |
