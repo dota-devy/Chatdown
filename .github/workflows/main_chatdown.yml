@@ -18,19 +18,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache NuGet packages
-        uses: actions/cache@v4
-        with: 
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/Chatdown.sln') }}
+      # - name: Cache NuGet packages
+      #   uses: actions/cache@v4
+      #   with: 
+      #     path: ~/.nuget/packages
+      #     key: ${{ runner.os }}-nuget-${{ hashFiles('**/Chatdown.sln') }}
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.x'
+          cache: true
+          cache-dependency-path: "**/packages.lock.json"
 
       - name: Restore dependencies
-        run: dotnet restore Chatdown.sln
+        run: dotnet restore Chatdown.sln --locked-mode
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
