@@ -36,9 +36,6 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: Run unit tests
-        run: dotnet test Chatdown.Tests/Chatdown.Tests.csproj --configuration Release
-
       - name: dotnet publish
         run: dotnet publish Chatdown.Web/Chatdown.Web.csproj -c Release -o "Chatdown.Web.Publish"
 
@@ -47,6 +44,20 @@ jobs:
         with:
           name: .net-app
           path: Chatdown.Web.Publish
+
+  test:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+
+      - name: Run tests
+        run: |
+          cd Chatdown.Web.Publish
+          dotnet test Chatdown.Tests/Chatdown.Tests.csproj --configuration Release
 
   deploy:
     runs-on: windows-latest
