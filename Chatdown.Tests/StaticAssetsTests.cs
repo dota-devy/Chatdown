@@ -23,7 +23,7 @@ namespace Chatdown.Tests
             foreach (var asset in requiredAssets)
             {
                 string assetPath = Path.Combine(projectRoot, asset);
-                Assert.True(File.Exists(asset) || Directory.Exists(assetPath), $"Missing static asset: {asset}");
+                Assert.True(File.Exists(asset) || Directory.Exists(assetPath), $"Missing static asset: {assetPath}");
             }
         }
     }
