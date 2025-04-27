@@ -47,7 +47,7 @@ jobs:
         if: success() && steps.restore-dependencies.outcome == 'failure'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release --no-restore /p:BuildAndroid=true /p:BuildiOS=true /p:BuildWindows=true Chatdown.sln
+        run: dotnet build --configuration Release --no-restore /p:BuildMacCatalyst=false Chatdown.sln
 
       - name: dotnet publish
         run: dotnet publish Chatdown.Web/Chatdown.Web.csproj -c Release -o "Chatdown.Web.Publish" 
